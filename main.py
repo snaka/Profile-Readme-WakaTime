@@ -15,7 +15,8 @@ import numpy as np
 import requests
 
 waka_key = os.getenv("INPUT_WAKATIME_API_KEY")
-stats_range = os.getenv("INPUT_STATS_RANGE", "last_7_days")
+stats_range = os.getenv("INPUT_STATS_RANGE")
+print("stats_range: ", stats_range)
 
 def this_week(dates: list) -> str:
     """Returns a week streak"""
