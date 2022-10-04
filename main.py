@@ -98,6 +98,7 @@ def create_hash(start_date, end_date):
         print(e)
     finally:
         file.close()
+    print("stats timestamp saved")
 
 
 if __name__ == "__main__":
