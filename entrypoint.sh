@@ -74,6 +74,12 @@ git remote -v
 
 git checkout "${INPUT_BRANCH}"
 
+# avoid nunecessary commits
+if [[ git diff --exit-code --quiet "images/.timestamp" ]]; then
+    echo -e "${GREEN}No changes to commit"
+    exit 0
+fi
+
 # push to github
 git stage "images/stat.svg"
 git stage "images/.timestamp"
