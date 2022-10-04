@@ -90,15 +90,15 @@ def get_stats() -> list:
     return data_list
 
 
-def create_hash(start_date, end_date):
+def create_timestamp(start_date, end_date):
     try:
-        file = open("./stats_date.txt", 'w')
+        file = open("./.timestamp", 'w')
         file.write(start_date + '-' + end_date)
     except Exception as e:
         print(e)
     finally:
         file.close()
-    print("stats timestamp saved")
+    print("timestamp saved")
 
 
 if __name__ == "__main__":
@@ -107,6 +107,6 @@ if __name__ == "__main__":
 
     start_date = waka_stat[3]
     end_date = waka_stat[4]
-    create_hash(start_date, end_date)
+    create_timestamp(start_date, end_date)
 
     print("python script run successful")

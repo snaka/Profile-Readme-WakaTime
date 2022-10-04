@@ -59,9 +59,9 @@ fi
 cp stat.svg "${repository}/images"
 check_success "new image copied" "error: cannot replace image"
 
-# record timestamp
-cp stat_date.txt "${repository}/images"
-check_success "stats timestamp saved" "error: cannot save stats timestamp"
+# save timestamp
+cp .timestamp "${repository}/images"
+check_success "timestamp saved" "error: cannot save timestamp"
 
 cd "${repository}" || exit
 
@@ -76,7 +76,7 @@ git checkout "${INPUT_BRANCH}"
 
 # push to github
 git stage "images/stat.svg"
-git stage "images/stat_date.txt"
+git stage "images/.timestamp"
 
 git commit -m "${INPUT_COMMIT_MSG}"
 git pull
