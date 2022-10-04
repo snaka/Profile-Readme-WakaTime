@@ -90,7 +90,22 @@ def get_stats() -> list:
     return data_list
 
 
+def create_hash(start_date, end_date):
+    try:
+        file = open("./stats_date.txt", 'w')
+        file.write(start_date + '-' + end_date)
+    except Exception as e:
+        print(e)
+    finally:
+        file.close()
+
+
 if __name__ == "__main__":
     waka_stat = get_stats()
     make_graph(waka_stat)
+
+    start_date = waka_stat[3]
+    end_date = waka_stat[4]
+    create_hash(start_date, end_date)
+
     print("python script run successful")
